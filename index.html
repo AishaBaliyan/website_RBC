@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aisha Baliyan | Portfolio</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #3498db;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .nav-menu {
+            display: flex;
+        }
+        
+        .nav-item {
+            margin-left: 30px;
+        }
+        
+        .nav-link {
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #3498db;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), #3498db;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 80px 0;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        /* Extracurriculars Section */
+        .extracurriculars {
+            padding: 80px 0;
+        }
+        
+        .extracurricular-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .extracurricular-item {
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .extracurricular-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        /* Awards Section */
+        .awards {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .awards-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .award-item {
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .award-item h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .award-item p {
+            font-style: italic;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 0;
+                padding: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .about-content,
+            .contact-form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Aisha Baliyan</a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="#extracurriculars" class="nav-link">Extracurriculars</a></li>
+                    <li class="nav-item"><a href="#awards" class="nav-link">Awards</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span>☰</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hi, I'm Aisha Baliyan</h1>
+                <p>Innovating the future through code, creativity, and community impact.</p>
+                <a href="#contact" class="btn">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Ontario-Based High School Student</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Who I Am</h3>
+                    <p>I'm currently in Grade 11, enrolled in the International Baccalaureate (IB) and French Immersion programs at Merivale High School. I'm deeply passionate about Computer Science, Engineering, and Entrepreneurship.</p>
+                    <p>With a strong foundation in Python, JavaScript, and Swift, I've applied my knowledge by building award-winning AI-powered apps, participating in hackathons, and leading robotics teams. I thrive in high-energy environments that call for both creativity and critical thinking.</p>
+                    <p>Beyond tech, I'm a student leader, public speaker, and changemaker who believes in the power of collaboration to drive real-world impact.</p>
+                    <a href="#projects" class="btn">View My Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="services">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Programming Languages</h3>
+                    <p>Coded in Python, JavaScript, and Swift. Experience building applications and publishing mobile apps on the App Store.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Tech Experience</h3>
+                    <p>Developed AI and machine learning models, led robotics teams, and created automation scripts to improve real-world workflows.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Communication & Leadership</h3>
+                    <p>Peer tutor, public speaker, student council representative, and leader of tech-focused initiatives like Relay for Life and science fair projects.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Collaboration & Creativity</h3>
+                    <p>Team player with a proven track record in generating innovative solutions in fast-paced, cross-functional environments.</p>
+                </div>
+                <div class="service-card">
+                    <h3>MS Office & Digital Tools</h3>
+                    <p>Proficient in Word, Excel, PowerPoint, and Outlook. Experienced in using productivity tools to streamline workflow and present ideas effectively.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Recent Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Dream Journal</h3>
+                        <p>A published iOS app that uses advanced technology to analyze and decode users' dreams. Built using Swift and CoreData with a sleek UI and smooth UX flow.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>AI Voice Legal Assistant</h3>
+                        <p>Canada Post Award-winning project that delivers legal rights info over the phone using AI voice recognition. Built with a ViT model.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Glamour</h3>
+                        <p>A smart skincare app that scans users' faces to provide personalized skin health analysis and product recommendations. Trained custom model with Hugging Face + PyTorch.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Vice Student Trustee</h3>
+                        <p>Serving as a representative for over 48,000 students in board meetings, advocating for student needs and ensuring their voices are heard in educational decision-making processes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extracurriculars Section -->
+    <section id="extracurriculars" class="extracurriculars">
+        <div class="container">
+            <h2 class="section-title">Extracurricular Activities</h2>
+            <div class="extracurricular-list">
+                <div class="extracurricular-item">
+                    <h3>Student Council Representative</h3>
+                    <p>Helped plan and lead school-wide events and initiatives</p>
+                </div>
+                <div class="extracurricular-item">
+                    <h3>FIRST Robotics Team Member</h3>
+                    <p>Part of the mechanical and programming teams; contributed to design and autonomous coding</p>
+                </div>
+                <div class="extracurricular-item">
+                    <h3>Chess Club (Ranking: 1000)</h3>
+                    <p>Regular participant, focusing on logic and strategic thinking</p>
+                </div>
+                <div class="extracurricular-item">
+                    <h3>Badminton + Basketball Teams</h3>
+                    <p>Active athlete and team player</p>
+                </div>
+                <div class="extracurricular-item">
+                    <h3>Merge Robotics</h3>
+                    <p>Competed in engineering challenges focused on creativity and tech</p>
+                </div>
+                <div class="extracurricular-item">
+                    <h3>Public Speaker</h3>
+                    <p>MC'd school events and led workshops for younger students</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="awards">
+        <div class="container">
+            <h2 class="section-title">Awards & Recognitions</h2>
+            <div class="awards-list">
+                <div class="award-item">
+                    <h3>Canada Post Community Foundation Award Winner (2023)</h3>
+                    <p>For using AI to improve access to legal knowledge</p>
+                </div>
+                <div class="award-item">
+                    <h3>High Honours (Grades 7, 8, 9, 10, 11)</h3>
+                    <p>Consistently achieved 90%+ average</p>
+                </div>
+                <div class="award-item">
+                    <h3>Nominated for Student Trustee (OCSB)</h3>
+                    <p>Selected to represent peers at the board level</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" value="Aisha Baliyan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" value="baliyan.aisha@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="#">FB</a>
+                <a href="#">TW</a>
+                <a href="#">IG</a>
+                <a href="#">LI</a>
+            </div>
+            <p>&copy; 2025 Aisha Baliyan. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu after clicking a link
+                document.querySelector('.nav-menu').classList.remove('active');
+            });
+        });
+        
+        // Form submission (currently just prevents default)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form submitted! In a real website, this would send a message.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
